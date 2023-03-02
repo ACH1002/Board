@@ -28,8 +28,8 @@ public class BoardController {
     }
 
 
-    @PostMapping("/board/writepro")
-    public String boardWritePro(Board board, Model model,@RequestParam("fileinput") MultipartFile file) throws Exception{
+    @RequestMapping(value = "/board/writepro", method = RequestMethod.POST)
+    public String boardWritePro(Board board, Model model,@RequestParam(value = "file", required = false) MultipartFile file) throws Exception{
 
         boardService.write(board, file);
 
